@@ -69,4 +69,7 @@ theme: mansfield
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: rsync
+  host: 138.197.10.138
+  user: root
+  root: /var/www/ofjamescole
