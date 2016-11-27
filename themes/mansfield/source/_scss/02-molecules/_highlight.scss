@@ -1,0 +1,147 @@
+/*
+ Solarized Color Schemes originally by Ethan Schoonover
+ http://ethanschoonover.com/solarized
+ Ported for PrismJS by Hector Matos
+ Website: https://krakendev.io
+ Twitter Handle: https://twitter.com/allonsykraken)
+*/
+
+/*
+SOLARIZED HEX
+--------- -------
+base03    #002b36
+base02    #073642
+base01    #586e75
+base00    #657b83
+base0     #839496
+base1     #93a1a1
+base2     #eee8d5
+base3     #fdf6e3
+yellow    #b58900
+orange    #cb4b16
+red       #dc322f
+magenta   #d33682
+violet    #6c71c4
+blue      #268bd2
+cyan      #2aa198
+green     #859900
+*/
+
+figure.highlight {
+  background-color: #fdf6e3;
+  color: #657b83; /* base00 */
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 4;
+  hyphens: none;
+  padding: vr(0.5);
+  margin: vr(1) 0;
+  overflow: auto;
+
+  figcaption {
+    border-bottom: 1px solid $haze;
+
+    a {
+      float: right;
+    }
+  }
+}
+
+figure.highlight ::-moz-selection {
+  background: #073642; /* base02 */
+}
+
+figure.highlight ::selection {
+  background: #073642; /* base02 */
+}
+
+figure.highlight {
+  pre {
+    @extend .f-mono-regular;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  .gutter {
+    width: 35px;
+    padding-right: 5px;
+    text-align: right;
+  }
+
+  .line {
+    height: 22px / $font-size * 1rem;
+    line-height: 22px / $font-size * 1rem;
+  }
+}
+
+figure.highlight .comment,
+figure.highlight .prolog,
+figure.highlight .doctype,
+figure.highlight .cdata {
+  color: #93a1a1; /* base1 */
+}
+
+figure.highlight .punctuation {
+  color: #586e75; /* base01 */
+}
+
+.namespace {
+  opacity: .7;
+}
+
+figure.highlight .property,
+figure.highlight .tag,
+figure.highlight .boolean,
+figure.highlight .number,
+figure.highlight .constant,
+figure.highlight .symbol,
+figure.highlight .deleted {
+  color: #268bd2; /* blue */
+}
+
+figure.highlight .selector,
+figure.highlight .attr-name,
+figure.highlight .string,
+figure.highlight .char,
+figure.highlight .builtin,
+figure.highlight .url,
+figure.highlight .inserted {
+  color: #2aa198; /* cyan */
+}
+
+figure.highlight .entity {
+  color: #657b83; /* base00 */
+  background: #eee8d5; /* base2 */
+}
+
+figure.highlight .atrule,
+figure.highlight .attr-value,
+figure.highlight .keyword {
+  color: #859900; /* green */
+}
+
+figure.highlight .function {
+  color: #b58900; /* yellow */
+}
+
+figure.highlight .regex,
+figure.highlight .important,
+figure.highlight .variable {
+  color: #cb4b16; /* orange */
+}
+
+figure.highlight .important,
+figure.highlight .bold {
+  font-weight: bold;
+}
+figure.highlight .italic {
+  font-style: italic;
+}
+
+figure.highlight .entity {
+  cursor: help;
+}

@@ -1,0 +1,24 @@
+.widget {
+  background-color: $firefly;
+  color: $haze;
+
+  &__title {
+    margin: 0 0 vr(0.5);
+    padding-bottom: vr(0.25);
+    border-bottom: 1px solid $haze;
+  }
+
+  a {
+    @include link($haze, none, $caribbean-green);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding: 0;
+    }
+  }
+}

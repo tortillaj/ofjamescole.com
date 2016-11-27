@@ -1,0 +1,39 @@
+.article {
+  &__inner {
+    @include row;
+  }
+
+  &__header {
+    max-width: 500px;
+    margin: 0 auto vr(2);
+    text-align: center;
+  }
+
+  &__category {
+    margin: 0 0 vr(0.5);
+    padding: 0;
+
+    &-item-link {
+      @extend .f-sans-bold;
+
+      font-size: 90%;
+      display: inline-block;
+      list-style-type: none;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+
+  &__date {
+    margin: vr(0.5) 0;
+    display: block;
+  }
+
+  .post-tags {
+    margin-top: vr(0.5);
+  }
+
+  .share-links {
+    display: inline-block;
+  }
+}

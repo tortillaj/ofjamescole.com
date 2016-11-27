@@ -1,0 +1,8 @@
+<% if (site.tags.length){ %>
+  <article class="widget">
+    <h3 class="widget__title"><%= __('tags') %></h3>
+    <div class="widget__inner">
+      <%- list_tags({show_count: theme.show_count}) %>
+    </div>
+  </article>
+<% } %>

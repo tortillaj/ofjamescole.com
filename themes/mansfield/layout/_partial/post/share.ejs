@@ -1,0 +1,8 @@
+<nav class="share-links">
+    <a class="share-links__item icon-mail-alt" href="mailto:?subject=<%- post.title %>&amp;body=<%- post.permalink %>">Email</a>
+    <a class="share-links__item icon-facebook-squared" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%- encodeURIComponent(post.permalink) %>">Share</a>
+    <a class="share-links__item icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Read+%22<%- post.title.split(' ').join('+') %><%- post.title %>%22+online.&amp;url=<%- encodeURIComponent(post.permalink) %>&amp;via=<%- theme.twitter %>">Tweet</a>
+    <% if (post.comments){ %>
+    <a class="share-links__item icon-commenting" href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
+    <% } %>
+</nav>

@@ -1,0 +1,16 @@
+<ul class="teaser-list">
+  <% page.posts.each(function(post){ %>
+  <li class="teaser-list__item">
+    <%- partial('teaser', {post: post, index: true}) %>
+  </li>
+  <% }) %>
+</ul>
+
+<% if (page.total > 1){ %>
+  <nav class="pager pager--small">
+    <%- paginator({
+      prev_text: "&laquo; __('prev')",
+      next_text: "__('next') &raquo;"
+    }) %>
+  </nav>
+<% } %>

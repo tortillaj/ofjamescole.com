@@ -1,0 +1,119 @@
+@mixin link($color, $text-decoration, $hover-color: $color, $hover-text-decoration: $text-decoration) {
+  color: $color;
+  text-decoration: $text-decoration;
+
+  &:hover,
+  &:focus {
+    color: $hover-color;
+    text-decoration: $hover-text-decoration;
+  }
+}
+
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin font-size($ms: 1, $rem: true, $fraction: 1) {
+  font-size: ms($ms) * $fraction;
+  @if $rem {
+    font-size: ms($ms) / $font-size * 1rem * $fraction;
+  }
+}
+
+.f-serif-regular {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+.f-sans-regular {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+.f-sans-bold {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}
+
+.f-mono-regular {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+}
+
+html {
+  font-size: $font-size / 16px * 100%;
+}
+
+body {
+  @extend .f-sans-regular;
+  @include font-smoothing;
+  @include font-size(1);
+
+  color: $firefly;
+  line-height: $line-height / $font-size;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @extend .f-serif-regular;
+
+  line-height: 1.2;
+  margin: vr(1.414) 0 vr(0.5);
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+h1 {
+  @include font-size(3);
+
+  margin-top: 0;
+}
+
+h2 {
+  @include font-size(2);
+}
+
+h3 {
+  @extend .f-sans-bold;
+
+  text-transform: uppercase;
+}
+
+h4 {
+  @extend .f-sans-bold;
+
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+
+  + p {
+    margin-top: vr(1.3);
+  }
+}
+
+a {
+  @include link($firefly, underline, $big-stone);
+}
+
+.bio {
+  @include row;
+
+  margin-bottom: $gutter * 2;
+
+  p {
+    @include font-size(1, true, 1.3);
+  }
+}

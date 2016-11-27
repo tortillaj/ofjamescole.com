@@ -1,0 +1,20 @@
+.site-main {
+  .column {
+    padding-top: vr(2);
+  }
+
+  .main {
+    background: linear-gradient(155deg, $granny-apple 55%, lighten($caribbean-green, 40%));
+    padding-bottom: vr(2);
+  }
+
+  .sidebar {
+    padding-bottom: vr(1);
+  }
+}
+
+.main {
+  &__inner {
+    @include row($site-max-width);
+  }
+}

@@ -1,0 +1,31 @@
+@function vr($amount) {
+  @return $line-height * $amount;
+}
+
+@function em($size) {
+  @return $size * 1px / $font-size * 1em;
+}
+
+@function pow($number, $power) {
+  $exponent: 1;
+
+  @if $power > 0 {
+    @for $i from 1 through $power {
+      $exponent: $exponent * $number;
+    }
+  } @else if $power < 0 {
+    @for $i from 1 through $power {
+      $exponent: $exponent / $number;
+    }
+  }
+
+  @return $exponent;
+}
+
+@function ms($position) {
+  @if $position > 1 {
+    @return $font-size * pow($vertical-rhythm-ratio, $position);
+  }
+
+  @return $font-size;
+}

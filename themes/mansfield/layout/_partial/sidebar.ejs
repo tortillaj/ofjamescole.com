@@ -1,0 +1,9 @@
+<% if (theme.sidebar) {%>
+<aside id="sidebar" class="column sidebar">
+  <div class="sidebar__inner">
+    <% theme.widgets.forEach(function(widget){ %>
+      <%- partial('_widget/' + widget) %>
+    <% }) %>
+  </div>
+</aside>
+<% } %>

@@ -1,0 +1,27 @@
+<article id="<%= post.layout %>-<%= post.slug %>" class="article article--<%= post.layout %>" itemscope itemprop="blogPost">
+  <div class="article__inner">
+    <header class="article__header">
+      <%- partial('post/category', {class_name: 'article__category'}) %>
+      <%- partial('post/title', {class_name: 'article__title'}) %>
+      <%- partial('post/date', {class_name: 'article__date', date_format: config.date_format}) %>
+      <%- partial('post/share', {class_name: 'article__share-links'}) %>
+    </header>
+
+    <%- partial('post/gallery') %>
+
+    <section class="article__entry" itemprop="articleBody">
+        <%- post.content %>
+    </section>
+
+    <footer class="article__footer">
+      <%- partial('post/tag') %>
+      <%- partial('post/nav') %>
+    </footer>
+
+    <% if (post.comments && config.disqus_shortname){ %>
+    <aside class="article__comments" id="comments">
+      <%- partial('post/comments') %>
+    </aside>
+    <% } %>
+  </div>
+</article>

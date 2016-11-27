@@ -1,0 +1,13 @@
+.wrapper {
+  &--header {
+    background-color: $big-stone;
+  }
+
+  &--main {
+    background-color: $granny-apple;
+  }
+
+  &--footer {
+    background-color: $black-pearl;
+  }
+}

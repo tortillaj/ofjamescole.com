@@ -1,0 +1,15 @@
+.main-menu {
+  &__link {
+    @extend .f-sans-bold;
+    @include link($haze, none, $haze, underline);
+    @include font-size(1);
+
+    margin-right: $gutter / 2;
+    display: inline-block;
+    text-transform: uppercase;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

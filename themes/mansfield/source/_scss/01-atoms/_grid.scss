@@ -1,0 +1,25 @@
+@mixin grid($child, $count, $margin: $gutter) {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint($bp-medium) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #{$child} {
+    @include breakpoint($bp-medium) {
+      flex-basis: (100 / $count * 1%);
+      padding: 0 $margin 0 0;
+
+      &:nth-child(#{$count}n + #{$count}) {
+        margin-right: 0;
+      }
+
+      &:nth-child(n + #{$count + 1}) {
+        margin-top: $margin;
+      }
+    }
+  }
+}

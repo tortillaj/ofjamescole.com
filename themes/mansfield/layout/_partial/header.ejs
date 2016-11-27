@@ -1,0 +1,15 @@
+<header class="wrapper wrapper--header site-header" role="banner">
+  <div class="wrapper__inner site-header__inner">
+    <h1 class="site-header__title">
+      <a href="/" class="site-header__home-link"><%= config.title %></a>
+    </h1>
+
+    <% if (theme.subtitle){ %>
+    <h2 class="site-header__sub-title">
+     <%= theme.subtitle %>
+    </h2>
+    <% } %>
+
+    <%- partial('_partial/main-menu') %>
+  </div>
+</header>

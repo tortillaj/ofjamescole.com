@@ -1,0 +1,21 @@
+.share-links {
+  margin: vr(0.5) 0 0;
+  padding: vr(0.5) vr(0.5) 0;
+  border-top: 1px solid $big-stone;
+
+  &__item {
+    display: inline-block;
+    margin: 0 vr(0.25) 0;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

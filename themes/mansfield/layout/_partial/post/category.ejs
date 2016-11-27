@@ -1,0 +1,10 @@
+<% if (post.categories && post.categories.length){ %>
+  <nav class="<%- class_name %>">
+    <%- list_categories(post.categories, {
+      show_count: false,
+      class: class_name + '-item',
+      style: 'none',
+      separator: '►'
+    }) %>
+  </nav>
+<% } %>

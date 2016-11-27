@@ -1,0 +1,52 @@
+.tag-list {
+  margin: 0;
+  padding: 0;
+
+  &-item {
+    display: inline-block;
+    margin: 0 20px vr(0.25) 0;
+  }
+
+  &-link {
+    line-height: 26px;
+    padding: 0 10px 0 23px;
+    position: relative;
+    color: $haze;
+    display: block;
+    background-color: $black-pearl;
+    border-radius: 3px 0 0 3px;
+    text-decoration: none;
+
+    &:hover {
+      color: $caribbean-green;
+      background-color: $big-stone;
+      text-decoration: none;
+
+      &::after {
+        border-left-color: $big-stone;
+      }
+    }
+
+    &::before {
+      background: $haze;
+      border-radius: 10px;
+      box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+      content: '';
+      height: 6px;
+      left: 10px;
+      position: absolute;
+      width: 6px;
+      top: 10px;
+    }
+
+    &::after {
+      border-bottom: 13px solid transparent;
+      border-left: 10px solid $black-pearl;
+      border-top: 13px solid transparent;
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 0;
+    }
+  }
+}

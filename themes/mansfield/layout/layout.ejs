@@ -1,0 +1,19 @@
+<%- partial('_partial/head') %>
+<body>
+<%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+<div class="wrapper wrapper--main site-main">
+    <div class="wrapper__inner site-main__inner">
+        <main class="column main">
+            <div class="main__inner">
+                <%- body %>
+            </div>
+        </main>
+        <% if (theme.sidebar){ %>
+        <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+        <% } %>
+    </div>
+</div>
+<%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+<%- partial('_partial/after-footer') %>
+</body>
+</html>

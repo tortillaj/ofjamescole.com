@@ -1,0 +1,18 @@
+//
+// Colors
+//
+$caribbean-green: hsla(168, 100%, 37%, 1.00);
+$granny-apple: hsla(120, 41%, 83%, 1.00);
+$bondi-blue: hsla(187, 100%, 36%, 1.00);
+$firefly: hsla(208, 51%, 15%, 1.00);
+$big-stone: hsla(208, 43%, 17%, 1.00);
+$black-pearl: hsla(207, 56%, 7%, 1.00);
+$casper: hsla(208, 10%, 70%, 1.00);
+$haze: hsla(0, 0%, 92%, 1.00);
+
+//
+// Set vertical rhythm
+//
+$font-size: 16px;
+$line-height: 1.625 * $font-size;
+$vertical-rhythm-ratio: 1.3333; // https://github.com/modularscale/modularscale-sass/blob/2.x/stylesheets/modular-scale/_ratios.scss

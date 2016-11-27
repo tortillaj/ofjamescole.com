@@ -1,0 +1,6 @@
+<% if (post.tags && post.tags.length){ %>
+<div class="post-tags">
+    <h4 class="post-tags__title"><%= __('tags') %></h4>
+    <%- list_tags(post.tags, {show_count: false}) %>
+</div>
+<% } %>

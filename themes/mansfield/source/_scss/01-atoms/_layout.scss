@@ -1,0 +1,19 @@
+$site-max-width: em(1150);
+$content-max-width: em(900);
+$gutter: vr(1);
+
+$bp-small: em(480);
+$bp-medium: em(768);
+$bp-large: $site-max-width;
+
+@mixin row($size: $content-max-width) {
+  max-width: $size;
+  margin: 0 auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  @include breakpoint($bp-large) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

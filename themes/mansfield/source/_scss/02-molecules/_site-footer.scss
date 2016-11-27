@@ -1,0 +1,21 @@
+.site-footer {
+  padding: vr(1) 0;
+  color: $haze;
+
+  a {
+    @include link($haze, underline, $caribbean-green, underline);
+  }
+
+  &__inner {
+    @include row;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      margin: 0;
+    }
+  }
+}

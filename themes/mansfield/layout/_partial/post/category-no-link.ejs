@@ -1,0 +1,5 @@
+<% if (post.categories && post.categories.length){ %>
+<% post.categories.each(function(category){ %>
+<p class="<%- class_name %>"><%- category.name %></p>
+<% }) %>
+<% } %>
