@@ -23,4 +23,6 @@ install:
   - npm install
 
 script:
-  - hexo generate --deploy
+  - hexo generate
+  - cp .htaccess public/.htaccess
+  - hexo deploy
