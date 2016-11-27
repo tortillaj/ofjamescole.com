@@ -11,6 +11,15 @@ language: default
 timezone:
 disqus_shortname: jamescole
 
+# Sitemap for search engines
+sitemap:
+  path: sitemap.xml
+
+# Content feed
+feed:
+  type: atom
+  path: atom.xml
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://ofjamescole.com
