@@ -44,14 +44,14 @@ gulp.task('sass:build', function() {
 
   return gulp.src(project.scss)
     .pipe(sassGlob())
-    .pipe(sourcemaps.init({debug: true}))
+    //.pipe(sourcemaps.init({debug: true}))
     .pipe(sass())
     .on('error', function(err) {
       console.log(err);
       this.emit('end');
     })
     .pipe(postcss(processors))
-    .pipe(sourcemaps.write())
+    //.pipe(sourcemaps.write())
     .pipe(gulp.dest(project.dest.css))
     .pipe(gulp.dest(project.hexo.public + '/css/'))
     .pipe(browserSync.stream());
