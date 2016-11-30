@@ -111,7 +111,7 @@ a {
 .bio {
   @include row;
 
-  margin-bottom: $gutter * 2;
+  margin-bottom: vr(2);
 
   p {
     @include font-size(1, true, 1.3);
