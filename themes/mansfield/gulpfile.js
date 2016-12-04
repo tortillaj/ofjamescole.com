@@ -16,6 +16,9 @@ var mqpacker = require('css-mqpacker');
 var sassGlob = require('gulp-sass-glob');
 var sourcemaps = require('gulp-sourcemaps');
 var cssnano = require('cssnano');
+var argv = require('yargs').argv;
+var gulpIf = require('gulp-if');
+var buildSourceMaps = !!argv.sourcemaps;
 
 var project = {
   dest: {
@@ -44,14 +47,14 @@ gulp.task('sass:build', function() {
 
   return gulp.src(project.scss)
     .pipe(sassGlob())
-    //.pipe(sourcemaps.init({debug: true}))
+    .pipe(gulpIf(buildSourceMaps, sourcemaps.init({debug: true})))
     .pipe(sass())
     .on('error', function(err) {
       console.log(err);
       this.emit('end');
     })
     .pipe(postcss(processors))
-    //.pipe(sourcemaps.write())
+    .pipe(gulpIf(buildSourceMaps, sourcemaps.write()))
     .pipe(gulp.dest(project.dest.css))
     .pipe(gulp.dest(project.hexo.public + '/css/'))
     .pipe(browserSync.stream());
@@ -95,3 +98,5 @@ gulp.task('serve', ['sass:build', 'hexo:build'], function() {
     runSequence(['hexo:generate'], browserSync.reload);
   });
 });
+
+gulp.task('default', ['serve']);

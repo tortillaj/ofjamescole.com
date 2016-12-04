@@ -9,8 +9,8 @@
 <% if (page.total > 1){ %>
   <nav class="pager pager--small">
     <%- paginator({
-      prev_text: "&laquo; __('prev')",
-      next_text: "__('next') &raquo;"
+      prev_text: "&laquo; "+  __('prev'),
+      next_text: __('next') + "&raquo;"
     }) %>
   </nav>
 <% } %>

@@ -1,0 +1,26 @@
+.pager {
+  padding: 0;
+  margin: vr(2) 0 0;
+  text-align: center;
+
+  > * {
+    font-size: 90%;
+    padding: 10px 15px;
+    background-color: $bondi-blue;
+    margin-right: vr(0.25);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    @include link($haze, none, $black-pearl);
+
+    transition: color 0.2s ease, background 0.2s ease;
+
+    &:hover {
+      background-color: lighten($bondi-blue, 5%);
+    }
+  }
+}
