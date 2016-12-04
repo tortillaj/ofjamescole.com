@@ -11,6 +11,8 @@ bio:
   - In practice, I'm a full stack developer, and I like getting my hands dirty wherever possible. My favorite technologies are those for the front-end, like D3, Angular, React, and Polymer. When not programming, I like making cheese, biking, and walking my dog.
   - Look over my projects, or read some of my writings.
 
+per_page: 9
+
 # Sidebar
 sidebar: true
 widgets:

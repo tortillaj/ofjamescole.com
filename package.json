@@ -5,6 +5,9 @@
   "hexo": {
     "version": "3.2.2"
   },
+  "scripts": {
+    "dev": "./node_modules/.bin/hexo serve --config _config.dev.yml"
+  },
   "dependencies": {
     "browsersync": "0.0.1-security",
     "gulp": "^3.9.1",
