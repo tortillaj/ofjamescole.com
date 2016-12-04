@@ -18,11 +18,16 @@ var sourcemaps = require('gulp-sourcemaps');
 var cssnano = require('cssnano');
 var argv = require('yargs').argv;
 var gulpIf = require('gulp-if');
+var favicons = require('gulp-favicons');
+var inject = require('gulp-inject');
+var imagemin = require('gulp-imagemin');
+var runSequence = require('run-sequence');
 var buildSourceMaps = !!argv.sourcemaps;
 
 var project = {
   dest: {
     css: 'source/css',
+    images: 'source/img',
   },
   hexo: {
     root: '../../',
@@ -30,6 +35,7 @@ var project = {
     source: ['../../source/**/*.md', '../../_config.yml', '_config.yml'],
     template: 'layout/**/*.ejs',
   },
+  images: 'source/_img/**/*.{jpg,gif,jpeg,png}',
   scss: 'source/_scss/**/*.scss',
 };
 
@@ -58,6 +64,52 @@ gulp.task('sass:build', function() {
     .pipe(gulp.dest(project.dest.css))
     .pipe(gulp.dest(project.hexo.public + '/css/'))
     .pipe(browserSync.stream());
+});
+
+gulp.task('favicons:generate', function() {
+  return gulp.src('source/_img/icon.png')
+    .pipe(favicons({
+      appName: 'OfJamesCole',
+      appDescription: 'Personal website of James Cole',
+      background: '#000',
+      path: '/img/icons',
+      display: 'standalone',
+      orientation: 'portrait',
+      start_url: '/?homescreen=1',
+      version: 1.0,
+      logging: false,
+      online: false,
+      html: 'icons.html',
+      pipeHTML: true,
+      replace: true,
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        windows: false,
+        yandex: false
+      }
+    }))
+    .pipe(gulp.dest('source/_img/icons'));
+});
+
+gulp.task('favicons:inject', function() {
+  return gulp.src('./layout/_partial/head.ejs')
+    .pipe(inject(gulp.src('./source/_img/icons/icons.html'), {
+      transform: function (filePath, file) {
+        return file.contents.toString();
+      }
+    }))
+    .pipe(gulp.dest('./layout/_partial'));
+});
+
+gulp.task('images:min', function() {
+  return gulp.src(project.images)
+    .pipe(imagemin())
+    .pipe(gulp.dest(project.dest.images));
 });
 
 gulp.task('hexo:build', function() {
@@ -100,3 +152,6 @@ gulp.task('serve', ['sass:build', 'hexo:build'], function() {
 });
 
 gulp.task('default', ['serve']);
+gulp.task('build', function(cb) {
+  runSequence(['sass:build', 'favicons:generate'], 'images:min', 'favicons:inject', 'hexo:build', 'cb');
+});
