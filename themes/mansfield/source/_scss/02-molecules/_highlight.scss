@@ -61,6 +61,7 @@ figure.highlight ::selection {
 figure.highlight {
   pre {
     @extend .f-mono-regular;
+    @include font-size(1, true, 0.9);
 
     padding: 0;
     margin: 0;
