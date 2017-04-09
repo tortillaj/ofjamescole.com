@@ -106,6 +106,8 @@ hfc_favicons:
     opengraph: false
     windows: true
     yandex: false
+sitemap:
+  path: sitemap.xml
 ## Themes: https://hexo.io/themes/
 theme: highline
 
