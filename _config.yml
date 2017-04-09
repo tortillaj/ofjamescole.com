@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 node_sass:
-  outputStyle: nested
+  outputStyle: compressed
   precision: 5
   sourceComments: false
 hfc_html:
