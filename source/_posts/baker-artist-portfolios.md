@@ -1,5 +1,6 @@
 ---
 title: Baker Artist Portfolios
+subtitle:
 layout: project
 images:
   left:

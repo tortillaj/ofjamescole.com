@@ -1,5 +1,6 @@
 ---
 title: IntelTrak
+subtitle:
 layout: project
 images:
   left:

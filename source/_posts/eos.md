@@ -1,5 +1,6 @@
 ---
 title: Eos
+subtitle:
 layout: project
 images:
   left:

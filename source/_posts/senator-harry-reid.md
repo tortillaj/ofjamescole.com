@@ -1,5 +1,6 @@
 ---
 title: Senator Harry Reid
+subtitle:
 layout: project
 images:
   left:

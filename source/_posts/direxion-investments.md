@@ -1,5 +1,6 @@
 ---
 title: Direxion Investments
+subtitle:
 layout: project
 images:
   left:

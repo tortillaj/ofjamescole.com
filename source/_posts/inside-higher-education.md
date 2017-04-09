@@ -1,5 +1,6 @@
 ---
 title: Inside Higher Education
+subtitle:
 layout: project
 images:
   left:

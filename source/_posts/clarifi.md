@@ -1,5 +1,6 @@
 ---
 title: Clarifi
+subtitle:
 layout: project
 images:
   left:

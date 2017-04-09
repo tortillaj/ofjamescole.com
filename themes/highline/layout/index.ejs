@@ -70,7 +70,9 @@
 					<a href="<%- url_for(post.path) %>" class="writings-list__item-link">
 						<h2 class="writings-list__item-title">
             <%= post.title %>
+            <% if (post.subtitle){%>
             <small class="writings-list__item-sub-title"><%= post.subtitle %></small>
+            <% } %>
           </h2>
 						<time class="writings-list__item-date"><%= date(post.date, config.date_format) %></time>
 					</a>
