@@ -1,0 +1,16 @@
+.footer {
+  @include padding(1, 1.75);
+
+  position: relative;
+  z-index: 3;
+  background-color: $stone;
+  color: $pale;
+
+  &__meta {
+    font-size: 0.9rem;
+
+    a {
+      color: $pale;
+    }
+  }
+}

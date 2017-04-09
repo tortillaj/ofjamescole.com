@@ -1,5 +1,6 @@
 ---
-title: 'Use Gulp for Drupal 8 with Teams, Part 1: Gulp Setup'
+title: Gulp Setup
+subtitle: Use Gulp for Drupal 8 with Teams, Part 1
 date: 2016-10-26 12:41:31
 tags:
 - gulp
@@ -12,13 +13,13 @@ Gulp is a mainstay of front-end development nowadays. Of course, like all front-
 
 This article is the first of a series of posts where I outline how Zivtech uses Gulp. In this first part, I'll talk about our reasoning and setup process.
 
-## Why does Zivtech use Gulp for Drupal 8?
+### Why does Zivtech use Gulp for Drupal 8?
 
 The choice of Gulp over other front end tools is due to how Drupal utilizes front-end assets. It's perfectly fine to use something like Webpack or Browserify with Drupal, but those all-encompassing, "build and combine all the things!" systems are best used for projects that don't have a built-in asset pipeline. For example, Drupal concatenates and minifies CSS and JS for us, and it's really just over-compiling (is that a word?) to use something that Drupal obviates.
 
 Also, we use Gulp over Grunt or even Broccoli (because yes, that's a thing too) strictly because Zivtech does a lot of node.js development as well. The concept of streams and buffers in Gulp are used throughout node.js, and it makes sense that we'd align with our other development.
 
-## Many projects and distributed teams
+### Many projects and distributed teams
 
 As a client services company, Zivtech has many projects and several teams working on projects. Thus, our building tasks have to be somewhat abstract so as to apply to most situations. So the first step to conquering the Gulp pipeline is figuring out a way to make the tasks themselves static, but let the configuration remain changeable.
 
@@ -30,7 +31,7 @@ At this point you might be thinking we should make a settings file for each proj
 
 As it turns out, Drupal 8 has a preferred method for settings files: the YAML format. Being a flexible guy, I vote for just sticking with what the system wants. Thus, our new settings files will be written in YAML.
 
-## Using YAML for Gulp settings
+### Using YAML for Gulp settings
 
 First, let's think about how we're going to implement settings from a big picture perspective. We've already determined that we'll work in YAML and we'll have a default group of configuration settings available. We also want each member of the team to be able to override some settings to fit their situations.
 
@@ -54,22 +55,22 @@ When Gulp runs, the **themeDescription** setting should match default, but the *
 Finally, in your **gulpfile.js**:
 
 ``` javascript
-(function () { 'use strict'; 
-  var gulp = require('gulp'); 
-  var yaml = require('js-yaml'); 
-  var fs = require('fs'); 
-  var assign = require('lodash.assign'); 
-  
+(function () { 'use strict';
+  var gulp = require('gulp');
+  var yaml = require('js-yaml');
+  var fs = require('fs');
+  var assign = require('lodash.assign');
+
   // read default config settings
-  var config = yaml.safeLoad(fs.readFileSync('default.gulpfile.yml', 'utf8'), {json: true}); 
-  try { 
+  var config = yaml.safeLoad(fs.readFileSync('default.gulpfile.yml', 'utf8'), {json: true});
+  try {
     // override default config settings
     var customConfig = yaml.safeLoad(fs.readFileSync('gulpfile.yml', 'utf8'), {json: true});
-    config = assign(config, customConfig); 
+    config = assign(config, customConfig);
   }
-  catch (e) { 
+  catch (e) {
     console.log('No custom config found! Proceeding with default config only.');
-  } 
+  }
 })();
 ```
 
@@ -77,7 +78,7 @@ Now, when you run any Gulp task, your config files will get merged by lodash. On
 
 You'll notice that loading the custom config is in a try ... catch block. We do that so there are no show-stopping errors if the custom config is not found. Additionally, if it's not found we can let the user know that only default settings are in use.
 
-## Wrapping up
+### Wrapping up
 
 Well, this has been a high-level explanation of how and why we use Gulp at Zivtech for D8 projects.
 
@@ -94,4 +95,3 @@ In the coming articles in this series, I'll expand on the simple **gulpfile.js**
 [4]: https://ofjamescole.com/post/use-gulp-drupal-8-teams-part-2-creating-tasks
 
 [Cross-posted](https://www.zivtech.com/blog/use-gulp-drupal-8-teams-part-1-gulp-setup "Permalink to Use Gulp for Drupal 8 with Teams, Part 1: Gulp Setup")
-  

@@ -1,5 +1,6 @@
 ---
-title: Fun with CSS3 Units
+title: New CSS3 Units
+subtitle: Easier responsive layouts with CSS3 units
 date: 2015-07-31 13:10:44
 tags:
 - sass
@@ -21,7 +22,7 @@ With the disclaimers out of the way, the four main viewport units are:
 3. vmin - the smaller value of 1vh or 1vw
 4. vmax - the larger value of 1vh or 1vw
 
-These units are crazy powerful. Let's say, for example, you're creating a layout that needs a section to span the entire height of the page. This is one of those age-old problems where we assign the section 100% height, throw up our hands when it doesn't work, and instead opt for a hacky-feeling CSS solution or (shudder) JavaScript. 
+These units are crazy powerful. Let's say, for example, you're creating a layout that needs a section to span the entire height of the page. This is one of those age-old problems where we assign the section 100% height, throw up our hands when it doesn't work, and instead opt for a hacky-feeling CSS solution or (shudder) JavaScript.
 
 With the viewport unit, you just set the section to 100vh height. Like magic, the section is the full viewable height: no more, no less. What's more, you can resize your window and the section resizes with it. The container can be sized in any units, from mm to in, or em to %. As the developer, you don't care about the absolute value because the vh / vw unit simply refers to 1/100 of its container in an abstract way.
 
@@ -40,4 +41,3 @@ Notes:
 [3]: https://github.com/saabi/vminpoly
 
 [Cross-posted](https://zivtech.com/blog/fun-css3-units "Permalink to Fun with CSS3 Units | Zivtech")
-  

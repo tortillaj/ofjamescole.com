@@ -1,0 +1,139 @@
+.main-nav {
+  @extend .f-sans-header-regular;
+
+  text-transform: uppercase;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  z-index: map-get($z, top);
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+
+  @include breakpoint(md) {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  &__link {
+    color: $aqua-compliment;
+    background-color: $stone;
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+    border: none;
+    font-weight: 700;
+
+    + .main-nav__link {
+      margin-top: $baseline / 4;
+    }
+
+    @for $i from 1 to 10 {
+      &:nth-child(#{$i}) {
+        $duration: $i * 0.15;
+        transition: transform $duration * 1s ease-in-out, opacity 0.2s ease-in-out;
+      }
+    }
+  }
+
+  .menu-button {
+    margin-bottom: 2rem;
+  }
+
+  &.is-active {
+    .main-nav__link {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+}
+
+.menu-button {
+  $bar-height: 0.139rem;
+  $bar-color: $aqua-compliment;
+  $bar-color-active: $aqua-compliment-dark;
+  $button-width: 1.459rem;
+  $button-width-inner-offset: 0.278rem;
+  $button-height: 1.042rem;
+  $timing: 0.35s;
+  $rotation: 40deg;
+
+  z-index: map-get($z, top);
+  position: relative;
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  width: $button-width;
+  height: $button-height;
+  padding: 0;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &__inner {
+    position: absolute;
+    height: $bar-height;
+    background-color: $bar-color;
+    width: $button-width - $button-width-inner-offset;
+    left: 0;
+    right: 0;
+    margin-left: $button-width-inner-offset / 2;
+    top: ($button-height - $bar-height) / 2;
+    transition: background $timing;
+
+    &::before,
+    &::after {
+      display: inline-block;
+      content: '';
+      position: absolute;
+      left: -1 * $button-width-inner-offset / 2;
+      width: $button-width;
+      height: $bar-height;
+      background-color: $bar-color;
+      transition-property: top, transform, background-color;
+      transition-duration: $timing, $timing, $timing;
+      transition-delay: $timing, 0s, $timing;
+    }
+
+    &::before {
+      top: -1 * ($button-height - $bar-height) / 2;
+    }
+
+    &::after {
+      top: ($button-height - $bar-height) / 2;
+    }
+  }
+
+  &.is-active {
+    .menu-button__inner {
+      background-color: transparent;
+      top: ($button-height - $bar-height) / 2;
+
+      &::before,
+      &::after {
+        transition-delay: 0s, $timing, $timing;
+        background-color: $bar-color-active;
+      }
+
+      &::before {
+        top: 0;
+        transform: rotate(-1 * $rotation);
+      }
+
+      &::after {
+        top: 0;
+        transform: rotate($rotation);
+      }
+    }
+  }
+
+  // won't need this in production
+  // since the u-accessible class exists
+  .u-accessible {
+    display: none;
+  }
+}

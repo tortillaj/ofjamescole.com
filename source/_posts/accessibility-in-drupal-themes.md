@@ -1,5 +1,6 @@
 ---
 title: Accessibility in Drupal Themes
+subtitle: Getting a wider audience
 date: 2015-04-07 13:14:17
 tags:
 - drupal
@@ -69,4 +70,3 @@ Zivtech is experienced with adhering to government standards for accessibility, 
 [11]: https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh
 
 [Cross-posted: Originally written for my employer](https://zivtech.com/blog/accessibility-drupal-themes "Permalink to Accessibility in Drupal Themes | Zivtech")
-  

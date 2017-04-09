@@ -1,5 +1,6 @@
 ---
-title: "Setup a Private Git Server on Digital Ocean"
+title: Setup a Private Git Server
+subtitle: Roll your own on Digital Ocean
 date: 2013-05-11T17:35:50-04:00
 comments: true
 share: true

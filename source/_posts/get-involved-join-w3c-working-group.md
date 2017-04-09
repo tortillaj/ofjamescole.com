@@ -1,6 +1,7 @@
 ---
 date: 2014-08-14T17:33:16-04:00
-title: "Get Involved and Join a W3C Working Group"
+title: Join a W3C Working Group
+subtitle: Get involved in making the Internet
 comments: true
 share: true
 tags:

@@ -1,0 +1,97 @@
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (min-width: 480px) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: 1024px) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else if $class == xlg {
+    @media (min-width: 1500px) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg, xlg";
+  }
+}
+
+@mixin margin($top, $right, $bottom: $top, $left: $right) {
+  margin: $line-height * $top * 1rem $line-height * $right * 1rem $line-height * $bottom * 1rem $line-height * $left * 1rem;
+}
+
+@mixin padding($top, $right, $bottom: $top, $left: $right) {
+  padding: $line-height * $top * 1rem $line-height * $right * 1rem $line-height * $bottom * 1rem $line-height * $left * 1rem;
+}
+
+@mixin padding-equal($padding) {
+  padding: $line-height * $padding * 1rem;
+}
+
+@mixin font-smoothing($value: antialiased) {
+  text-rendering: optimizeLegibility;
+  
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+	& {
+		@each $property in $properties {
+			#{$property}: $min-value;
+		}
+
+		@media screen and (min-width: $min-vw) {
+			@each $property in $properties {
+				#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+			}
+		}
+
+		@media screen and (min-width: $max-vw) {
+			@each $property in $properties {
+				#{$property}: $max-value;
+			}
+		}
+	}
+}
+
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@mixin cf {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin element-invisible {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+@mixin element-invisible-off {
+  position: relative;
+  height: auto;
+  width: auto;
+  overflow: inherit;
+  clip: none;
+}

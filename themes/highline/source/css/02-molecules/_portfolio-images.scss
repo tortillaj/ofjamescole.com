@@ -1,0 +1,72 @@
+.portfolio-images {
+	padding: 0;
+	margin: 0;
+	transition: all 0.3s ease-in-out;
+	opacity: 1;
+	display: flex;
+	justify-content: flex-end;
+
+	&__list {
+		padding: 0;
+		margin: 0;
+
+		@include breakpoint(sm) {
+			@include padding(0, 2);
+
+			max-width: 75vw;
+		}
+
+		@include breakpoint(md) {
+			max-width: 80vw;
+		}
+
+		@include breakpoint(xlg) {
+			max-width: 100rem;
+		}
+	}
+
+	&__group {
+		@include cf;
+		list-style: none;
+
+		+ {
+			.portfolio-images__group {
+				@include margin(2, 0, 0, 0);
+			}
+		}
+	}
+
+	&__group-title {
+		color: $pale;
+
+		@include breakpoint(sm) {
+			@include element-invisible;
+		}
+	}
+
+	&__group-image--left {
+		@include breakpoint(sm) {
+			float: left;
+		}
+	}
+
+	&__group-image--right {
+		@include breakpoint(sm) {
+			float: right;
+		}
+	}
+
+	&__group-image {
+		opacity: 0.6;
+	}
+
+	&__group-specimen {
+		width: 100%;
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+
+		&.is-active {
+			opacity: 1;
+		}
+	}
+}

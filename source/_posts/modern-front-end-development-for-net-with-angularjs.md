@@ -1,6 +1,7 @@
 ---
 date: 2014-05-14T18:00:06-04:00
-title: "Modern Front End Development Using AngularJS with .NET MVC"
+title: Modern Front End Development
+subtitle: Using AngularJS with .NET MVC
 comments: true
 share: true
 tags:

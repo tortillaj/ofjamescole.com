@@ -1,0 +1,30 @@
+.portfolio {
+	@include padding(1, 1.8);
+	position: relative;
+	background-color: $black-pearl;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	z-index: map-get($z, second);
+
+	@include breakpoint(sm) {
+		 @include padding(3, 1.8, 8);
+	}
+
+	&__title {
+		@extend .main-section-title;
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		@include breakpoint(sm) {
+			background-color: HSLA(207, 56%, 7%, 0.6);
+		}
+	}
+}

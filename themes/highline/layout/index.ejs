@@ -1,0 +1,81 @@
+<article class="about js-slide" id="about">
+	<section class="js-about-content about__content">
+		<h1 class="about__title">
+	    About
+	    <span class="visually-hidden" aria-role="hidden">James Cole</span>
+	  </h1>
+		<p>I began web developing in 2006 while completing my Bachelor's degree. It was just a hobby at the time, for extra cash. Yet after graduation, it soon became a full-time career. Since 2008, I've been a professional web developer working on a variety of
+			technologies and languages, from .NET to Drupal, and JavaScript to Ruby.</p>
+		<p>In practice, I'm a full stack developer, and I like getting my hands dirty wherever possible. My favorite technologies are those for the front-end, like D3, Angular, React, and Polymer. When not programming, I like making cheese, biking, and walking
+			my dog.</p>
+		<p>Look over my projects, or read some of my writings.</p>
+	</section>
+</article>
+
+<article class="portfolio js-slide" id="portfolio">
+	<nav class="js-portfolio-nav portfolio-list" id="portfolioList">
+		<h1 class="portfolio__title">
+	    Portfolio
+	    <span class="visually-hidden" aria-role="hidden">of works by James Cole</span>
+	  </h1>
+		<% page.posts.each(function(post){ %>
+			<% if (post.layout === 'project') {%>
+				<a href="#<%- post.identifier %>" class="portfolio-list__link">
+					<%- post.title %>
+				</a>
+				<%}%>
+					<%})%>
+	</nav>
+
+	<section class="portfolio-images" id="portfolioListImages">
+		<span id="portfolioImagesReveal"></span>
+		<ul class="portfolio-images__list">
+			<% page.posts.each(function(post){ %>
+				<% if (post.layout === 'project') {%>
+					<li class="js-image-group portfolio-images__group" id="<%- post.identifier %>">
+						<h4 class="portfolio-images__group-title"><%- post.title %></h4>
+						<div class="js-image portfolio-images__group-image portfolio-images__group-image--left">
+							<picture class="portfolio-images__group-specimen-picture">
+								<source srcset="<%- post.images.left.large %>" media="(min-width: 1200px)">
+								<source srcset="<%- post.images.left.medium %>" media="(min-width: 768px)">
+								<img src="<%- post.images.left.small %>" alt="<%- post.title %>" class="portfolio-images__group-specimen" />
+							</picture>
+						</div>
+						<div class="js-image portfolio-images__group-image portfolio-images__group-image--right">
+							<picture class="portfolio-images__group-specimen-picture">
+								<source srcset="<%- post.images.right.large %>" media="(min-width: 1200px)">
+								<source srcset="<%- post.images.right.medium %>" media="(min-width: 768px)">
+								<img src="<%- post.images.right.small %>" alt="<%- post.title %>" class="portfolio-images__group-specimen" />
+							</picture>
+						</div>
+					</li>
+					<%}%>
+						<%})%>
+		</ul>
+		<span id="portfolioImagesHide"></span>
+	</section>
+	<span class="portfolio__overlay"></span>
+</article>
+
+<article class="writings js-slide" id="writings">
+	<h1 class="writings__title">
+    Articles
+    <span class="visually-hidden" aria-role="hidden">written by James Cole</span>
+  </h1>
+
+	<ol class="writings-list">
+		<% page.posts.each(function(post){ %>
+			<% if (post.layout === 'post') {%>
+				<li class="writings-list__item">
+					<a href="<%- url_for(post.path) %>" class="writings-list__item-link">
+						<h2 class="writings-list__item-title">
+            <%= post.title %>
+            <small class="writings-list__item-sub-title"><%= post.subtitle %></small>
+          </h2>
+						<time class="writings-list__item-date"><%= date(post.date, config.date_format) %></time>
+					</a>
+				</li>
+				<%}%>
+					<%})%>
+	</ol>
+</article>

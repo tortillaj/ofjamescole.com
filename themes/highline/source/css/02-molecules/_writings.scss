@@ -1,0 +1,16 @@
+.writings {
+	@include padding(1, 0);
+	min-height: 100vh;
+	background-color: $stone;
+	z-index: map-get($z, third);
+	position: relative;
+
+	@include breakpoint(sm) {
+		 @include padding(2, 0, 6);
+	}
+
+	&__title {
+		@extend .main-section-title;
+		@include margin(0, 0, 0, 1.8);
+	}
+}

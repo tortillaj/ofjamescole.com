@@ -1,5 +1,6 @@
 ---
-title: 'Use Gulp for Drupal 8 with Teams, Part 2: Creating Tasks'
+title: Creating Gulp Tasks
+subtitle: Use Gulp for Drupal 8 with Teams, Part 2
 date: 2016-11-15 12:53:04
 tags:
 - gulp
@@ -22,7 +23,7 @@ It'd be nice to strip down **gulpfile.js**, make it readable, and somehow compar
 
 My current favorite way to handle these wishes is [gulp-require-tasks][2]. Basically, each task is written as an individual, CommonJS style module. Then, the tasks are arranged in directories, and that directory structure defines the task name. It is a very simple and predictable way to setup Gulp tasks.
 
-## Structuring Gulp tasks
+### Structuring Gulp tasks
 
 Start off by creating the file tree structure below:
 
@@ -49,7 +50,7 @@ Start off by creating the file tree structure below:
 
 gulp-require-tasks lets these tasks be accessible according to their structure. For example, to build the styles, you'll run "gulp styles:build" and to lint the JavaScript, you'll run "gulp scripts:lint." If you don't like the colon delimiter, you can change that too.
 
-## Update Gulp settings
+### Update Gulp settings
 
 In the last post we started the **default.gulpfile.yml**, and now we'll edit that same file to add in settings for the Gulp tasks we'll create in this project.
 
@@ -70,9 +71,9 @@ styles:
   dest: "css"
   lint:
     enabled: true
-    failOnError: false 
+    failOnError: false
 scripts:
-  src: "js/**/*.js", 
+  src: "js/**/*.js",
   lint:
     enabled: true
     failOnError: false
@@ -93,18 +94,18 @@ Open up the **gulpfile.js** we started in the last post. It should look like thi
   var gulp = require('gulp');
   var yaml = require('js-yaml');
   var fs = require('fs');
-  var assign = require('lodash.assign'); 
-  
-  // read default config settings 
-  var config = yaml.safeLoad(fs.readFileSync('default.gulpfile.yml', 'utf8'), {json: true}); 
-  try { 
-    // override default config settings 
-    var customConfig = yaml.safeLoad(fs.readFileSync('gulpfile.yml', 'utf8'), {json: true}); 
-    config = assign(config, customConfig); 
-  } 
-  catch (e) { 
-    console.log('No custom config found! Proceeding with default config only.'); 
-  } 
+  var assign = require('lodash.assign');
+
+  // read default config settings
+  var config = yaml.safeLoad(fs.readFileSync('default.gulpfile.yml', 'utf8'), {json: true});
+  try {
+    // override default config settings
+    var customConfig = yaml.safeLoad(fs.readFileSync('gulpfile.yml', 'utf8'), {json: true});
+    config = assign(config, customConfig);
+  }
+  catch (e) {
+    console.log('No custom config found! Proceeding with default config only.');
+  }
 })();
 ```
 
@@ -149,7 +150,7 @@ gulp.task('build', ['styles:build', 'scripts:build']);
 gulp.task('lint', ['styles:lint', 'scripts:lint']);
 ```
 
-## Modular Gulp tasks
+### Modular Gulp tasks
 
 Let's start off creating the Sass linting task. To help with this, I recommend using [gulp-sass-lint][3]. You'll want to [read over how to setup sass-lint][4], which I won't cover in detail here. Essentially, you create a **.sass-lint.yml** file in the root of the project. That file contains all the rules you want to validate; for example, should developers avoid styling with IDs or should they use RGB rather than HEX values for colors.
 
@@ -184,7 +185,7 @@ We start off by running a quick if/else check so that we short-circuit out of th
 
 Next, the styles are linted and the results are formatted and reported out to the console. Finally, we use [gulp-if][6] to determine if the Gulp process gets terminated now should there be linting errors.
 
-## The sky's the limit
+### The sky's the limit
 
 I leave it as an exercise for the reader to go about developing the other Gulp tasks. In the next post, I'll go over some other, more complicated Gulp tasks to show more advanced usage. Until then, you're more than welcome to [look over and reference][7] our own Gulp tasks we publish for [Bear Skin][8].
 

@@ -1,0 +1,12 @@
+<nav class="js-main-nav main-nav">
+	<button title="View navigation menu" class="js-menu-trigger menu-button">
+	  <span class="menu-button__inner">
+	    <span class="u-accessible">View navigation menu</span
+	  </span>
+	</button>
+	<% for (var i in theme.menu){ %>
+		<a class="main-nav__link" href="/#<%- theme.menu[i] %>" data-anchor="<%- theme.menu[i] %>">
+			<%= i %>
+		</a>
+		<% } %>
+</nav>

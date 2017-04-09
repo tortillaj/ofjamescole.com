@@ -1,6 +1,7 @@
 ---
 date: 2012-05-17T18:41:53-04:00
-title: "CSS Media Queries and Flexible Embeddable Widgets"
+title: CSS Media Queries and Flexible Embeddable Widgets
+subtitle: Getting more out of Responsive Design
 tags:
     - css
     - design

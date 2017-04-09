@@ -1,0 +1,76 @@
+.header {
+  @include padding-equal(0.3);
+  background: url('/img/rainforest-750x422.jpg') top left no-repeat $black-pearl;
+  background-size: cover;
+  z-index: map-get($z, base);
+  color: white;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 50vh;
+
+  &.is-ready {
+    position: fixed;
+  }
+
+  @include breakpoint(sm) {
+    height: 100vh;
+  }
+
+  @include breakpoint(md) {
+    @include padding-equal(0.5);
+    background: url('/img/rainforest-1200x675.jpg') top left no-repeat $black-pearl;
+    background-size: cover;
+  }
+
+  @include breakpoint(lg) {
+    background: url('/img/rainforest-1920x1080.jpg') top left no-repeat $black-pearl;
+    background-size: cover;
+  }
+
+  &__wrapper {
+    background-color: HSLA(207, 56%, 7%, 0.7);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid white;
+  }
+
+  &__title-link {
+    @include padding(0.8, 1);
+
+    display: block;
+    border: 2px solid $aqua-compliment;
+
+    @include breakpoint(md) {
+      @include padding(1.5, 2.5);
+    }
+  }
+
+  &__title {
+    font-size: $h2;
+    line-height: $h2;
+    margin: 0;
+    border: 0.5rem solid $aqua;
+    color: $pale;
+  }
+
+  &__sub-title {
+    display: block;
+    color: $pale;
+    text-transform: lowercase;
+  }
+
+  &__space {
+    &.is-ready {
+      display: block;
+      height: 50vh;
+
+      @include breakpoint(sm) {
+        height: 100vh;
+      }
+    }
+  }
+}

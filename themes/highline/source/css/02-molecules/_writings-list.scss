@@ -1,0 +1,37 @@
+.writings-list {
+	@include padding(0, 1.8);
+	margin: 0;
+	list-style: none;
+
+	@include breakpoint(sm) {
+		 @include padding(0, 3, 0, 1.8);
+	}
+
+	@include breakpoint(lg) {
+		 @include padding(0, 5, 0, 1.8);
+	}
+
+	&__item {
+		@include padding(1, 0);
+	}
+
+	&__item-link {
+		display: block;
+		text-decoration: none;
+		color: $aqua;
+		transition: 0.3s color ease-in-out;
+
+		&:hover {
+			color: $aqua-compliment;
+		}
+	}
+
+	&__item-title {
+		@extend .f-sans-header-boldest;
+
+		font-size: $h3;
+		line-height: $h3;
+		margin: 0 0 $baseline / 3;
+		text-transform: uppercase;
+	}
+}

@@ -4,27 +4,11 @@
 
 # Site
 title: James Cole
-subtitle:
-description: Personal website for James Cole.
+subtitle: front-end Developer
+description: Front-end developer specializing in JavaScript app development.
 author: James Cole
-language: default
+language:
 timezone:
-disqus_shortname: jamescole
-
-# Sitemap for search engines
-sitemap:
-  path: sitemap.xml
-
-# Content feed
-feed:
-  type: atom
-  path: atom.xml
-
-criticalcss:
-  enable: true
-  critical:
-    inline: true
-    minify: true
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -50,8 +34,8 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
-relative_link: true
+post_asset_folder: true
+relative_link: false
 future: true
 highlight:
   enable: true
@@ -73,13 +57,57 @@ time_format: HH:mma
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 9
+per_page: 0
 pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+node_sass:
+  outputStyle: nested
+  precision: 5
+  sourceComments: false
+hfc_html:
+  enable: true
+hfc_css:
+  enable: false
+  exclude:
+    - '*.min.css'
+hfc_js:
+  enable: true
+  mangle: true
+  exclude:
+    - '*.min.js'
+hfc_img:
+  enable: true
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false
+  webp: true
+  webpQuality: 75
+  gifslice: true
+  jpegtran: true
+  jpegrecompress: false
+  jpegrecompressQuality: 'medium'
+  optipng: true
+  svgo: true
+hfc_favicons:
+  enable: true
+  src: img/icon.png
+  target: img/
+  icons:
+    android: true
+    appleIcon: true
+    appleStartup: false
+    coast: false
+    favicons: true
+    firefox: false
+    opengraph: false
+    windows: true
+    yandex: false
 ## Themes: https://hexo.io/themes/
-theme: mansfield
+theme: highline
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

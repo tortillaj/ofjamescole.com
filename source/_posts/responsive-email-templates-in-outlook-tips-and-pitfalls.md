@@ -1,6 +1,7 @@
 ---
 date: 2014-08-01T17:35:50-04:00
-title: "Responsive Email Templates in Outlook: Tips and Pitfalls"
+title: Responsive Email Templates in Outlook
+subtitle: Tips and Pitfalls
 comments: true
 share: true
 tags:

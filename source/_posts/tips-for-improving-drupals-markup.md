@@ -1,6 +1,7 @@
 ---
 date: 2012-06-12T18:39:29-04:00
-title: "Tips for Improving Drupal's Markup"
+title: Tips for Improving Drupal's Markup
+subtitle: Getting a handle on the divs
 comments: true
 share: true
 tags:

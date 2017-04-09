@@ -1,6 +1,7 @@
 ---
 date: 2011-12-12T18:48:01-04:00
-title: "Responsive Works for Emails, too!"
+title: Responsive Works for Emails, too!
+subtitle: Delivering emails to mobile devices
 tags:
     - responsive
     - emails

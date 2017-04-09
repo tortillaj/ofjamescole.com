@@ -1,0 +1,43 @@
+.portfolio-list {
+	$z-slide: map-get($z, second);
+
+	display: none;
+
+	@include breakpoint(sm) {
+		display: block;
+		transition: opacity 0.3s ease-in-out;
+		padding: 0;
+		margin: 0;
+		white-space: nowrap;
+		position: fixed;
+		z-index: $z-slide+1;
+		bottom: 10vh;
+		left: 5vw;
+		transform: translate3d(-999em, -999em, 0);
+		opacity: 0;
+
+		&.is-active {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	&__link {
+		@extend .f-sans-header-bold;
+
+		display: block;
+		color: $pale;
+		text-decoration: none;
+		border: none;
+		font-size: $h6;
+		line-height: $h6;
+
+		+ .portfolio-list__link {
+			margin-top: $baseline / 4;
+		}
+
+		&.is-active {
+			color: $aqua-compliment;
+		}
+	}
+}

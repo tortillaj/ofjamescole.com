@@ -1,6 +1,7 @@
 ---
 date: 2014-05-09T18:12:12-04:00
-title: "Using Icons in Web Development The Move to SVG"
+title: Using Icons in Web Development
+subtitle: The Move to SVG
 tags:
     - responsive
     - design

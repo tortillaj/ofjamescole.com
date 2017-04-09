@@ -1,0 +1,29 @@
+<% if (config.disqus_shortname){ %>
+	<script>
+		var disqus_shortname = '<%= config.disqus_shortname %>';
+		<% if (page.permalink){ %>
+		var disqus_url = '<%= page.permalink %>';
+		<% } %>
+		(function() {
+			var dsq = document.createElement('script');
+			dsq.type = 'text/javascript';
+			dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+<% } %>
+<script>
+	var JC = {};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/ScrollToPlugin.min.js"></script>
+<script src="https://use.typekit.net/nkv0dqd.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<%- js('js/utility') %>
+<%- js('js/homeAnimations') %>
+<%- js('js/script') %>
