@@ -41,7 +41,11 @@
 
 html {
 	box-sizing: border-box;
-	@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
+	font-size: $minFont;
+
+	@include breakpoint(md) {
+		font-size: $maxFont;
+	}
 }
 
 body {
@@ -148,8 +152,6 @@ ul {
 .main-section-title {
 	@extend .f-serif-regular-italic;
 
-	font-size: $h3;
-	line-height: $h3;
 	text-transform: none;
 	color: $aqua-compliment;
 	border-bottom: 1px solid $aqua-compliment;

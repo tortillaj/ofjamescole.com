@@ -36,16 +36,20 @@
 						<h4 class="portfolio-images__group-title"><%- post.title %></h4>
 						<div class="js-image portfolio-images__group-image portfolio-images__group-image--left">
 							<picture class="portfolio-images__group-specimen-picture">
+								<!--[if IE 9]><video style="display: none;"><![endif]-->
 								<source srcset="<%- post.images.left.large %>" media="(min-width: 1200px)">
 								<source srcset="<%- post.images.left.medium %>" media="(min-width: 768px)">
-								<img src="<%- post.images.left.small %>" alt="<%- post.title %>" class="portfolio-images__group-specimen" />
+								<img srcset="<%- post.images.left.small %>" alt="<%- post.title %>" class="portfolio-images__group-specimen" />
+								<!--[if IE 9]></video><![endif]-->
 							</picture>
 						</div>
 						<div class="js-image portfolio-images__group-image portfolio-images__group-image--right">
 							<picture class="portfolio-images__group-specimen-picture">
+								<!--[if IE 9]><video style="display: none;"><![endif]-->
 								<source srcset="<%- post.images.right.large %>" media="(min-width: 1200px)">
 								<source srcset="<%- post.images.right.medium %>" media="(min-width: 768px)">
-								<img src="<%- post.images.right.small %>" alt="<%- post.title %>" class="portfolio-images__group-specimen" />
+								<img srcset="<%- post.images.right.small %>" alt="<%- post.title %>" class="portfolio-images__group-specimen" />
+								<!--[if IE 9]></video><![endif]-->
 							</picture>
 						</div>
 					</li>

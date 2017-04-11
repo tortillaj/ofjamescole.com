@@ -20,6 +20,7 @@
 		text-decoration: none;
 		color: $aqua;
 		transition: 0.3s color ease-in-out;
+		border: none;
 
 		&:hover {
 			color: $aqua-compliment;

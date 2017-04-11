@@ -38,7 +38,7 @@
 
 @mixin font-smoothing($value: antialiased) {
   text-rendering: optimizeLegibility;
-  
+
   @if $value == antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

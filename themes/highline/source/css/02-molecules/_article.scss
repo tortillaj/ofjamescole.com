@@ -8,7 +8,7 @@
 	}
 
 	&-inner {
-		@include padding(0, 1.8);
+		@include padding(0, 1.2);
 		@extend .inset-container;
 
 		@include breakpoint(md) {

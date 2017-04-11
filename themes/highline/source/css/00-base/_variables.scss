@@ -19,17 +19,18 @@ $z: (base: 0, first: 10, second: 20, third: 30, top: 100);
 $header-font: 'proxima-nova-extra-condensed', 'Open Sans', sans-serif;
 $body-font: 'Gentium Book Basic', serif;
 
-$baseline: 1.35rem;
+$baseline: 1.4rem;
 $line-height: $baseline / 1rem;
 
 $minScreen: 20rem;
-$maxScreen: 50rem;
+$maxScreen: 64rem;
 $minFont: 1rem;
-$maxFont: 1.75rem;
+$maxFont: 1.5rem;
 
-$h1: 4.768rem;
-$h2: 3.815rem;
-$h3: 3.052rem;
-$h4: 2.441rem;
-$h5: 1.953rem;
-$h6: 1.563rem;
+// $h1: 4.768rem;
+$h1: 3.815rem;
+$h2: 3.052rem;
+$h3: 2.441rem;
+$h4: 1.953rem;
+$h5: 1.563rem;
+$h6: 1rem;

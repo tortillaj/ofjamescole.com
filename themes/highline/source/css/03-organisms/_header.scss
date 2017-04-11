@@ -8,6 +8,7 @@
   left: 0;
   width: 100vw;
   height: 50vh;
+  min-height: 22rem;
 
   &.is-ready {
     position: fixed;
@@ -67,6 +68,7 @@
     &.is-ready {
       display: block;
       height: 50vh;
+      min-height: 22rem;
 
       @include breakpoint(sm) {
         height: 100vh;
