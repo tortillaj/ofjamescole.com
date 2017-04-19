@@ -13,15 +13,15 @@
 		@include breakpoint(sm) {
 			@include padding(0, 2);
 
-			max-width: 75vw;
+			max-width: 60vw;
 		}
 
 		@include breakpoint(md) {
-			max-width: 80vw;
+			max-width: 60vw;
 		}
 
 		@include breakpoint(xlg) {
-			max-width: 100rem;
+			max-width: 70vw;
 		}
 	}
 
